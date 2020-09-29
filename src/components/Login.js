@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as loginActions from '../redux/actions/loginActions.js';
 import '../css/login.css'
+import { bindActionCreators } from 'redux';
 
 class Login extends Component {
   state = {
@@ -19,7 +22,8 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    alert(this.state.loginInfo.email);
+    // this.props.createSession(this.state.loginInfo);
+    this.props.actions.createSession(this.state.loginInfo);
   }
 
   render() {
@@ -43,4 +47,17 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    loginInfo: state.loginInfo
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // createSession: loginInfo => dispatch(loginActions.createSession(loginInfo))
+    actions: bindActionCreators(loginActions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
