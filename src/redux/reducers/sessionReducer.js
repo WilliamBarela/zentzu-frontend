@@ -1,6 +1,6 @@
 import * as types from '../actions/actionTypes';
 
-export default function loginReducer(state = {}, action) {
+export default function sessionReducer(state = {}, action) {
   switch (action.type) {
     case types.CREATE_SESSION:
       alert(action.loginInfo.email);
