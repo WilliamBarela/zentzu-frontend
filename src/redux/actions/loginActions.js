@@ -1,3 +1,5 @@
+import * as types from './actionTypes'
+
 export function createSession(loginInfo) {
-  return {type: "CREATE_SESSION", loginInfo}
+  return {type: types.CREATE_SESSION, loginInfo}
 }
