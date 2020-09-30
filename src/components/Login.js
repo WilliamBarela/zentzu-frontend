@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as loginActions from '../redux/actions/loginActions.js';
+import * as sessionActions from '../redux/actions/sessionActions.js';
 import '../css/login.css'
 import { bindActionCreators } from 'redux';
 
@@ -55,8 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // createSession: loginInfo => dispatch(loginActions.createSession(loginInfo))
-    actions: bindActionCreators(loginActions, dispatch)
+    // createSession: loginInfo => dispatch(sessionActions.createSession(loginInfo))
+    actions: bindActionCreators(sessionActions, dispatch)
   }
 }
 
