@@ -18,3 +18,7 @@ export function authenticate(loginInfo) {
       });
   }
 }
+
+export function authenticateDestroy() {
+  return { type: types.AUTHENTICATE_DESTROY }
+}
