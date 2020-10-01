@@ -22,8 +22,7 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // this.props.createSession(this.state.loginInfo);
-    this.props.actions.createSession(this.state.loginInfo);
+    this.props.actions.authenticate(this.state.loginInfo);
   }
 
   render() {
@@ -55,7 +54,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // createSession: loginInfo => dispatch(sessionActions.createSession(loginInfo))
     actions: bindActionCreators(sessionActions, dispatch)
   }
 }

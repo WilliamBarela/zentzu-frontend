@@ -3,15 +3,15 @@ import {
   postLogin
 } from '../../api/sessionAdapter';
 
-export function createSessionSuccess(authResponse) {
-  return {type: types.CREATE_SESSION_SUCCESS, authResponse}
+export function authenticateSuccess(authResponse) {
+  return {type: types.AUTHENTICATE_SUCCESS, authResponse}
 }
 
-export function createSession(loginInfo) {
+export function authenticate(loginInfo) {
   return function(dispatch) {
     postLogin(loginInfo)
       .then(authResponse => {
-        dispatch(createSessionSuccess(authResponse));
+        dispatch(authenticateSuccess(authResponse));
       })
       .catch(error => {
         throw error;

@@ -6,7 +6,7 @@ const storeJWT = jwt => {
 
 export default function sessionReducer(state = {}, action) {
   switch (action.type) {
-    case types.CREATE_SESSION_SUCCESS:
+    case types.AUTHENTICATE_SUCCESS:
       storeJWT(action.authResponse.jwt_token);
       return action.authResponse
     default:
