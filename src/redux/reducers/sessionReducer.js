@@ -1,13 +1,14 @@
 import * as types from '../actions/actionTypes';
-import { postLogin } from '../../api/sessionAdapter';
+
+const storeJWT = jwt => {
+  localStorage.setItem('jwt', jwt);
+}
 
 export default function sessionReducer(state = {}, action) {
   switch (action.type) {
-    case types.CREATE_SESSION:
-      //alert(action.loginInfo.email);
-
-      postLogin(action.loginInfo).then(j => console.log(j));
-      return {...state, email: action.loginInfo.email};
+    case types.CREATE_SESSION_SUCCESS:
+      storeJWT(action.authResponse.jwt_token);
+      return action.authResponse
     default:
       return state;
   }
