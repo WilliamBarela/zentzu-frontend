@@ -40,6 +40,7 @@ class Login extends Component {
           onChange={this.handleChange}
           value={this.state.loginInfo.password}
         />
+        <h4>{this.props.message}</h4>
         <input type="submit" value="Login" />
       </form>
     );
@@ -48,7 +49,7 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    loginInfo: state.loginInfo
+    message: state.sessionReducer.message
   }
 }
 
