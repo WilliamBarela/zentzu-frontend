@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as sessionActions from '../redux/actions/sessionActions.js';
 import '../css/login.css'
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -25,7 +26,8 @@ class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.actions.authenticate(this.state.loginInfo);
+    const submission = { loginInfo: this.state.loginInfo, history: this.props.history }
+    this.props.actions.authenticate(submission);
   }
 
   render() {
@@ -64,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));

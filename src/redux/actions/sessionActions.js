@@ -3,16 +3,18 @@ import {
   postLogin
 } from '../../api/sessionAdapter';
 
-export function authenticateSuccess(authResponse) {
-  const payload = { ...authResponse, historyy: window.history };
+export function authenticateSuccess({authResponse, history}) {
+  //const payload = { ...authResponse, historyy: window.history };
+  const payload = {...authResponse, history};
   return {type: types.AUTHENTICATE_SUCCESS, payload}
 }
 
-export function authenticate(loginInfo) {
+export function authenticate(submission) {
+  const { loginInfo, history } = submission;
   return function(dispatch) {
     postLogin(loginInfo)
       .then(authResponse => {
-        dispatch(authenticateSuccess(authResponse));
+        dispatch(authenticateSuccess({authResponse, history}));
       })
       .catch(error => {
         throw error;
