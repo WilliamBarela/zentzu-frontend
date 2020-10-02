@@ -1,20 +1,20 @@
 import * as types from './actionTypes'
 import {
-  postLogin
+  postLogin,
+  logout
 } from '../../api/sessionAdapter';
 
-export function authenticateSuccess({authResponse, history}) {
-  //const payload = { ...authResponse, historyy: window.history };
-  const payload = {...authResponse, history};
+export function authenticateSuccess(authResponse) {
+  const payload = {...authResponse};
   return {type: types.AUTHENTICATE_SUCCESS, payload}
 }
 
 export function authenticate(submission) {
   const { loginInfo, history } = submission;
   return function(dispatch) {
-    postLogin(loginInfo)
+    postLogin(loginInfo, history)
       .then(authResponse => {
-        dispatch(authenticateSuccess({authResponse, history}));
+        dispatch(authenticateSuccess(authResponse));
       })
       .catch(error => {
         throw error;
@@ -22,6 +22,7 @@ export function authenticate(submission) {
   }
 }
 
-export function authenticateDestroy() {
+export function authenticateDestroy(history) {
+  logout(history);
   return { type: types.AUTHENTICATE_DESTROY }
 }
