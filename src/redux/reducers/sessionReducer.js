@@ -11,8 +11,12 @@ const removeJWT = () => {
 export default function sessionReducer(state = {}, action) {
   switch (action.type) {
     case types.AUTHENTICATE_SUCCESS:
-      storeJWT(action.authResponse.jwt_token);
-      return action.authResponse
+      if(action.payload.jwt_token) {
+        action.payload = {...action.payload, authenticated: true}
+        storeJWT(action.payload.jwt_token);
+        action.payload.historyy.pushState({}, "", "/profile");
+      }
+      return action.payload
     case types.AUTHENTICATE_DESTROY:
       removeJWT();
       return {}

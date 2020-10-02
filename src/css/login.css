@@ -1,6 +1,7 @@
 @import 'index.css';
 
-body {
+main {
+  height: calc(100vh - 2 * var(--h1-font-size));
   display: flex;
   flex-direction: column;
   justify-content: center;

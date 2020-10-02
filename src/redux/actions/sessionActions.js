@@ -4,7 +4,8 @@ import {
 } from '../../api/sessionAdapter';
 
 export function authenticateSuccess(authResponse) {
-  return {type: types.AUTHENTICATE_SUCCESS, authResponse}
+  const payload = { ...authResponse, historyy: window.history };
+  return {type: types.AUTHENTICATE_SUCCESS, payload}
 }
 
 export function authenticate(loginInfo) {

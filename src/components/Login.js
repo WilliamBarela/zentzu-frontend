@@ -5,11 +5,14 @@ import '../css/login.css'
 import { bindActionCreators } from 'redux';
 
 class Login extends Component {
-  state = {
-    loginInfo: {
-      email: '',
-      password: ''
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginInfo: {
+        email: '',
+        password: ''
+      }
+    };
   }
 
   handleChange = e => {
@@ -27,22 +30,24 @@ class Login extends Component {
 
   render() {
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input 
-          type="email"
-          name="email"
-          onChange={this.handleChange}
-          value={this.state.loginInfo.email}
-        />
-        <input
-          type="password"
-          name="password"
-          onChange={this.handleChange}
-          value={this.state.loginInfo.password}
-        />
-        <h4>{this.props.message}</h4>
-        <input type="submit" value="Login" />
-      </form>
+      <main>
+        <form onSubmit={this.handleSubmit}>
+          <input 
+            type="email"
+            name="email"
+            onChange={this.handleChange}
+            value={this.state.loginInfo.email}
+          />
+          <input
+            type="password"
+            name="password"
+            onChange={this.handleChange}
+            value={this.state.loginInfo.password}
+          />
+          <h4>{this.props.message}</h4>
+          <input type="submit" value="Login" />
+        </form>
+      </main>
     );
   }
 }
