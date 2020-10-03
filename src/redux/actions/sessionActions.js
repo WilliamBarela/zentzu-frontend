@@ -15,10 +15,11 @@ export function authenticateSuccess(authResponse) {
 export function authenticate(submission) {
   const { loginInfo, history } = submission;
   return function(dispatch) {
-    postLogin(loginInfo, history)
+    postLogin(loginInfo)
       .then(authResponse => {
         dispatch(authenticateSuccess(authResponse));
       })
+      .then(() => history.push("/profile"))
       .catch(error => {
         throw error;
       });

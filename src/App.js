@@ -4,6 +4,7 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
 
 import Login from './components/Login.js';
 import Profile from './components/Profile.js';
@@ -12,9 +13,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/profile">
+        <PrivateRoute path="/profile">
           <Profile />
-        </Route>
+        </PrivateRoute>
         <Route path="/">
           <Login />
         </Route>

@@ -14,16 +14,15 @@ const redirectTo = (history, location) => {
   history.push(location);
 }
 
-const persistLogin = (response, history) => {
+const persistLogin = (response) => {
   if(response.jwt_token) {
     storeJWT(response.jwt_token);
-    redirectTo(history, "/profile");
   }
 
   return response
 }
 
-export function postLogin (loginInfo, history) {
+export function postLogin (loginInfo) {
   const payload = {
     method: 'POST',
     headers: {
@@ -35,7 +34,7 @@ export function postLogin (loginInfo, history) {
 
   return fetch(LOGIN, payload)
           .then(r => r.json())
-          .then(response => persistLogin(response, history))
+          .then(response => persistLogin(response))
 }
 
 export function logout (history) {
