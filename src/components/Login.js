@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 import * as sessionActions from '../redux/actions/sessionActions.js';
 import '../css/login.css'
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
+import {
+  withRouter,
+  Link
+} from 'react-router-dom';
+import {
+  SIGNUP
+} from '../api/endpoints';
 
 class Login extends Component {
   constructor(props) {
@@ -49,6 +55,7 @@ class Login extends Component {
           <h4>{this.props.message}</h4>
           <input type="submit" value="Login" />
         </form>
+        <Link to={SIGNUP}>Sign Up</Link>
       </main>
     );
   }
