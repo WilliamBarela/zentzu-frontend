@@ -13,7 +13,7 @@ form {
   align-items: center;
 }
 
-input {
+input, textarea {
   margin-bottom: var(--h2-font-size);
   line-height: var(--h2-font-size);
   font-size: var(--h3-font-size);
