@@ -4,3 +4,4 @@ export const URI = (endpoint) => ROOT + endpoint;
 
 export const LOGIN = "/login";
 export const PROFILE = "/profile";
+export const SIGNUP = "/signup";

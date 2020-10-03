@@ -8,11 +8,13 @@ import PrivateRoute from './components/PrivateRoute';
 
 import {
   PROFILE,
-  LOGIN
+  LOGIN,
+  SIGNUP
 } from './api/endpoints';
 
-import Login from './components/Login.js';
-import Profile from './components/Profile.js';
+import Login from './components/Login';
+import Profile from './components/Profile';
+import SignUp from './components/SignUp'
 
 function App() {
   return (
@@ -23,6 +25,9 @@ function App() {
         </PrivateRoute>
         <Route path={LOGIN}>
           <Login />
+        </Route>
+        <Route path={SIGNUP}>
+          <SignUp />
         </Route>
         <Route path="/">
           <Login />
