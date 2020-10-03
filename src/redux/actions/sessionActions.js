@@ -1,4 +1,7 @@
-import * as types from './actionTypes'
+import {
+  AUTHENTICATE_SUCCESS,
+  EXPIRE_SESSION
+} from './actionTypes'
 import {
   postLogin,
   logout
@@ -6,7 +9,7 @@ import {
 
 export function authenticateSuccess(authResponse) {
   const payload = {...authResponse};
-  return {type: types.AUTHENTICATE_SUCCESS, payload}
+  return {type: AUTHENTICATE_SUCCESS, payload}
 }
 
 export function authenticate(submission) {
@@ -22,7 +25,7 @@ export function authenticate(submission) {
   }
 }
 
-export function authenticateDestroy(history) {
+export function expireSession(history) {
   logout(history);
-  return { type: types.AUTHENTICATE_DESTROY }
+  return { type: EXPIRE_SESSION }
 }

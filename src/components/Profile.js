@@ -1,9 +1,13 @@
 import React from 'react';
+import SignOut from './SignOut';
 
 class Profile extends React.Component {
   render(){
     return (
-      <h1>Hello</h1>
+      <>
+        <SignOut />
+        <h1>Hello</h1>
+      </>
     )
   }
 }
