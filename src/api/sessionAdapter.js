@@ -1,6 +1,7 @@
 import {
   URI,
-  LOGIN
+  LOGIN,
+  SIGNUP
 } from './endpoints';
 
 const storeJWT = jwt => {
@@ -36,6 +37,21 @@ export function postLogin (loginInfo) {
   return fetch(URI(LOGIN), payload)
           .then(r => r.json())
           .then(response => persistLogin(response))
+}
+
+export function postSignUp (signUpInfo) {
+  const payload = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify({person: signUpInfo})
+  }
+
+  return fetch(URI(SIGNUP), payload)
+          .then(r => r.json())
+          .then(json => console.log(json))
 }
 
 export function logout (history) {
