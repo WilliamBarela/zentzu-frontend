@@ -1,4 +1,5 @@
 import {
+  URI,
   LOGIN
 } from './endpoints';
 
@@ -32,12 +33,12 @@ export function postLogin (loginInfo) {
     body: JSON.stringify({person: loginInfo})
   }
 
-  return fetch(LOGIN, payload)
+  return fetch(URI(LOGIN), payload)
           .then(r => r.json())
           .then(response => persistLogin(response))
 }
 
 export function logout (history) {
   removeJWT();
-  redirectTo(history, "/");
+  redirectTo(history, LOGIN);
 }

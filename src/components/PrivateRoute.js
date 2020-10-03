@@ -3,6 +3,11 @@ import {
   Route,
   Redirect
 } from 'react-router-dom';
+
+import {
+  LOGIN
+} from '../api/endpoints';
+
 import { connect } from 'react-redux';
 
 function PrivateRoute(props) {
@@ -11,7 +16,7 @@ function PrivateRoute(props) {
     const component = (
       authenticated ?
       (children) :
-      ( <Redirect to={{pathname: '/login', state: { from: location }}} />));
+      ( <Redirect to={{pathname: LOGIN, state: { from: location }}} />));
 
     return component
   }

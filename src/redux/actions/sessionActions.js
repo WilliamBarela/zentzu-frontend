@@ -6,6 +6,9 @@ import {
   postLogin,
   logout
 } from '../../api/sessionAdapter';
+import {
+  PROFILE
+} from '../../api/endpoints';
 
 export function authenticateSuccess(authResponse) {
   const payload = {...authResponse};
@@ -19,7 +22,7 @@ export function authenticate(submission) {
       .then(authResponse => {
         dispatch(authenticateSuccess(authResponse));
       })
-      .then(() => history.push("/profile"))
+      .then(() => history.push(PROFILE))
       .catch(error => {
         throw error;
       });
