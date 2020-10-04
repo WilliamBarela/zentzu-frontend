@@ -18,7 +18,7 @@ function ListErrors(props) {
   const errors = props.errors;
   const errorsList = 
     errors ?
-    errors.map( (error, index) => <ListError key={index} value={error} />) :
+    errors.map( error => <ListError key={error.index} value={error.message} />) :
     null 
 
   return (
