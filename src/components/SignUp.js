@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
-  Link
+  Link,
+  withRouter
 } from 'react-router-dom';
 import {
   LOGIN
 } from '../api/endpoints';
 import '../css/signup.css';
+import { registration } from '../redux/actions/sessionActions';
 
 class SignUp extends Component {
   constructor(props) {
@@ -23,7 +26,9 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.signUpInfo);
+    //console.log(this.state.signUpInfo);
+    const submission = { signUpInfo: this.state.signUpInfo, history: this.props.history }
+    this.props.actions.registration(submission);
   }
 
   handleChange = e => {
@@ -81,4 +86,18 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return {
+    message: state.sessionReducer.message
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: {
+      registration: (submission) => {dispatch(registration(submission))}
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SignUp));

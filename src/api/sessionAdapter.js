@@ -51,7 +51,7 @@ export function postSignUp (signUpInfo) {
 
   return fetch(URI(SIGNUP), payload)
           .then(r => r.json())
-          .then(json => console.log(json))
+          .then(response => persistLogin(response))
 }
 
 export function logout (history) {
