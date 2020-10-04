@@ -16,7 +16,7 @@ export default function sessionReducer(state = {}, action) {
     case REGISTRATION_SUCCESS:
       return {...action.payload, ...authState(action)}
     case REGISTRATION_FAILED:
-      return action.payload
+      return { ...state, errors: action.response.errors, ...authState(action) }
     default:
       return state;
   }

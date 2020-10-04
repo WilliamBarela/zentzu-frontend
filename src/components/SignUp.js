@@ -10,6 +10,24 @@ import {
 import '../css/signup.css';
 import { registration } from '../redux/actions/sessionActions';
 
+function ListError(props) {
+  return <li>{props.value}</li>
+}
+
+function ListErrors(props) {
+  const errors = props.errors;
+  const errorsList = 
+    errors ?
+    errors.map( (error, index) => <ListError key={index} value={error} />) :
+    null 
+
+  return (
+    <ul>
+      {errorsList}
+    </ul>
+  )
+}
+
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -79,6 +97,7 @@ class SignUp extends Component {
             value={this.state.signUpInfo.summary}
             placeholder="About you ..."
           />
+          <ListErrors errors={this.props.errors} />
           <input type="submit" value="Register"/>
         </form>
       </>
@@ -88,7 +107,7 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    message: state.sessionReducer.message
+    errors: state.sessionReducer.errors
   }
 }
 
