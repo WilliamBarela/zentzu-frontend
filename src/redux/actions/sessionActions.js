@@ -1,5 +1,6 @@
 import {
   AUTHENTICATE_SUCCESS,
+  AUTHENTICATE_FAILED,
   EXPIRE_SESSION,
   REGISTRATION_SUCCESS,
   REGISTRATION_FAILED
@@ -40,12 +41,6 @@ function createThunkWithRedirect(dataTarget, apiCall, actionStatus, newLocation)
   }
 }
 
-// function registrationStatus(signUpResponse) {
-//   const type = signUpResponse.errors ? REGISTRATION_FAILED : REGISTRATION_SUCCESS
-//   return { type, signUpResponse }
-// }
-
-
 const registrationStatus = createActionStatus("errors",
                                               REGISTRATION_FAILED,
                                               REGISTRATION_SUCCESS);
@@ -55,38 +50,14 @@ export const registration = createThunkWithRedirect("signUpInfo",
                                                     registrationStatus,
                                                     PROFILE);
 
-// export function registration(submission) {
-//   const { signUpInfo, history } = submission;
-//   return function(dispatch) {
-//     postSignUp(signUpInfo)
-//       .then(signUpResponse => dispatch(registrationStatus(signUpInfo)))
-//       //.then( () => history.push(PROFILE))
-//       .catch(error => {
-//         throw error;
-//       });
-//   }
-// }
+const authenticateStatus = createActionStatus("message",
+                                              AUTHENTICATE_FAILED,
+                                              AUTHENTICATE_SUCCESS);
 
-export function authenticateSuccess(authResponse) {
-  const payload = {...authResponse};
-  return {type: AUTHENTICATE_SUCCESS, payload}
-}
-
-export function authenticate(submission) {
-  const { loginInfo, history } = submission;
-  let AR;
-  return function(dispatch) {
-    postLogin(loginInfo)
-      .then(authResponse => {
-        AR = authResponse;
-        dispatch(authenticateSuccess(authResponse));
-      })
-      .then(() => (AR.jwt_token ? history.push(PROFILE) : null))
-      .catch(error => {
-        throw error;
-      });
-  }
-}
+export const authenticate = createThunkWithRedirect("loginInfo",
+                                                    postLogin,
+                                                    authenticateStatus,
+                                                    PROFILE);
 
 export function expireSession(history) {
   logout(history);

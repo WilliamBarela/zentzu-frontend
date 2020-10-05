@@ -1,5 +1,6 @@
 import {
   AUTHENTICATE_SUCCESS,
+  AUTHENTICATE_FAILED,
   REGISTRATION_SUCCESS,
   REGISTRATION_FAILED
 } from '../actions/actionTypes';
@@ -13,6 +14,8 @@ export default function sessionReducer(state = {}, action) {
   switch (action.type) {
     case AUTHENTICATE_SUCCESS:
       return {...action.payload, ...authState(action)}
+    case AUTHENTICATE_FAILED:
+      return { ...state, message: action.response.message, ...authState(action) }
     case REGISTRATION_SUCCESS:
       return {...action.payload, ...authState(action)}
     case REGISTRATION_FAILED:
