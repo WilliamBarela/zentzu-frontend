@@ -8,25 +8,9 @@ import {
   LOGIN
 } from '../api/endpoints';
 import '../css/signup.css';
+
+import ListErrors from './ListErrors';
 import { registration } from '../redux/actions/sessionActions';
-
-function ListError(props) {
-  return <li>{props.value}</li>
-}
-
-function ListErrors(props) {
-  const errors = props.errors;
-  const errorsList = 
-    errors ?
-    errors.map( error => <ListError key={error.index} value={error.message} />) :
-    null 
-
-  return (
-    <ul>
-      {errorsList}
-    </ul>
-  )
-}
 
 class SignUp extends Component {
   constructor(props) {
