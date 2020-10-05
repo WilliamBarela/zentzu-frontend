@@ -32,7 +32,7 @@ export const registration = createThunkWithRedirect({
 });
 
 const authenticateStatus = createActionStatus({
-  failedResponseHas: "message",
+  failedResponseHas: "errors",
   failedType: AUTHENTICATE_FAILED,
   successType: AUTHENTICATE_SUCCESS
 });

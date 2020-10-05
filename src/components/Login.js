@@ -11,6 +11,8 @@ import {
   SIGNUP
 } from '../api/endpoints';
 
+import ListErrors from './ListErrors';
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +54,7 @@ class Login extends Component {
             onChange={this.handleChange}
             value={this.state.loginInfo.password}
           />
-          <h4>{this.props.message}</h4>
+          <ListErrors errors={this.props.errors} />
           <input type="submit" value="Login" />
         </form>
         <Link to={SIGNUP}>Sign Up</Link>
@@ -63,7 +65,7 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    message: state.sessionReducer.message
+    errors: state.sessionReducer.errors
   }
 }
 
