@@ -11,53 +11,38 @@ import {
   logout
 } from '../../api/sessionAdapter';
 import {
+  createActionStatus,
+  createThunkWithRedirect
+} from './helpers/thunkCreators';
+import {
   PROFILE
 } from '../../api/endpoints';
 
-function createActionStatus(check, action_failed, action_success) {
-  return (response) => {
-    const type = response[check] ? action_failed : action_success
-    return { type, response }
-  }
-}
+const registrationStatus = createActionStatus({
+  failedResponseHas: "errors",
+  failedType: REGISTRATION_FAILED,
+  successType: REGISTRATION_SUCCESS
+});
 
-function createThunkWithRedirect(dataTarget, apiCall, actionStatus, newLocation) {
-  return (submission) => {
-    const data = submission[dataTarget];
-    const history = submission.history;
-    let stowedApiResponse;
+export const registration = createThunkWithRedirect({
+  dataTarget: "signUpInfo",
+  apiCall: postSignUp,
+  actionStatus: registrationStatus,
+  redirectTo: PROFILE
+});
 
-    return function(dispatch) {
-      apiCall(data)
-        .then(apiResponse => {
-          stowedApiResponse = apiResponse;
-          dispatch(actionStatus(apiResponse))
-        })
-        .then( () => (stowedApiResponse.jwt_token ? history.push(newLocation) : null) )
-        .catch(error => {
-          throw error;
-        })
-    }
-  }
-}
+const authenticateStatus = createActionStatus({
+  failedResponseHas: "message",
+  failedType: AUTHENTICATE_FAILED,
+  successType: AUTHENTICATE_SUCCESS
+});
 
-const registrationStatus = createActionStatus("errors",
-                                              REGISTRATION_FAILED,
-                                              REGISTRATION_SUCCESS);
-
-export const registration = createThunkWithRedirect("signUpInfo",
-                                                    postSignUp,
-                                                    registrationStatus,
-                                                    PROFILE);
-
-const authenticateStatus = createActionStatus("message",
-                                              AUTHENTICATE_FAILED,
-                                              AUTHENTICATE_SUCCESS);
-
-export const authenticate = createThunkWithRedirect("loginInfo",
-                                                    postLogin,
-                                                    authenticateStatus,
-                                                    PROFILE);
+export const authenticate = createThunkWithRedirect({
+  dataTarget: "loginInfo",
+  apiCall: postLogin,
+  actionStatus: authenticateStatus,
+  redirectTo: PROFILE
+});
 
 export function expireSession(history) {
   logout(history);
