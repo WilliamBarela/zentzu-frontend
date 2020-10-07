@@ -28,16 +28,30 @@ export default class WeekCalc {
            ( this.year % 4 === 0 )
   }
 
-  seq(n) {
-    return Array(n).fill().map( (_, i) => i + 1 )
+  seq(n, init) {
+    return Array(n).fill().map( (_, i) => i + init )
   }
 
-  get calendarArray () {
+  get fullYearInDays () {
     const year = this.year;
-    const expandDays = n => this.seq(n);
+    const expandDays = (n, init) => this.seq(n, init);
 
-    const numericDayArr = this.months.map( (m) => expandDays(m.days) );
-    const calendar = numericDayArr.map( (m, i) => m.map( (d) => new Date(`${year}-${i+1}-${d}`)) );
-    return calendar //.flat()
+    const numericDayArr = this.months.map( (m) => expandDays(m.days, 1) );
+    const calendar = numericDayArr.map( (m, i) => m.map( d => new Date(`${year}-${i+1}-${d}.`)) );
+    return calendar.flat()
+  }
+
+  get weekList () {
+    const currentYearInDays = this.fullYearInDays;
+    const firstDayOfYear = currentYearInDays[0].getDay();
+    const lastDayOfYear = 6 - currentYearInDays.slice(-1)[0].getDay();
+
+    const previousYear = this.year - 1;
+    const nextYear = this.year + 1;
+
+    const daysOfLastYear = this.seq(firstDayOfYear, 31 - (firstDayOfYear - 1) ).map( d => new Date(`${previousYear}-12-${d}.`) );
+    const daysOfNextYear = this.seq(lastDayOfYear, 1).map( d => new Date(`${nextYear}-1-${d}.`) );
+
+    return [...daysOfLastYear, ...currentYearInDays, ...daysOfNextYear]
   }
 }
