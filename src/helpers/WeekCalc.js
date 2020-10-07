@@ -7,18 +7,18 @@ export default class WeekCalc {
     const daysInFeb = this.isLeapYear ? 29 : 28;
 
     return ([
-      { days: 31, name: 'Jan' },
-      { days: daysInFeb, name: 'Feb' },
-      { days: 31, name: 'Mar' },
-      { days: 30, name: 'Apr' },
-      { days: 31, name: 'May' },
-      { days: 30, name: 'Jun' },
-      { days: 31, name: 'Jul' },
-      { days: 31, name: 'Aug' },
-      { days: 30, name: 'Sep' },
-      { days: 31, name: 'Oct' },
-      { days: 30, name: 'Nov' },
-      { days: 31, name: 'Dec' }
+      { id: 1, days: 31, name: 'Jan' },
+      { id: 2, days: daysInFeb, name: 'Feb' },
+      { id: 3, days: 31, name: 'Mar' },
+      { id: 4, days: 30, name: 'Apr' },
+      { id: 5, days: 31, name: 'May' },
+      { id: 6, days: 30, name: 'Jun' },
+      { id: 7, days: 31, name: 'Jul' },
+      { id: 8, days: 31, name: 'Aug' },
+      { id: 9, days: 30, name: 'Sep' },
+      { id: 10, days: 31, name: 'Oct' },
+      { id: 11, days: 30, name: 'Nov' },
+      { id: 12, days: 31, name: 'Dec' }
       ])
   }
 
@@ -72,15 +72,22 @@ export default class WeekCalc {
     return weekList
   }
 
-  get weeksPerMonth() {
+  get detailedMonths() {
+    const months = this.months;
     const year = this.year;
-    const weeksOfMonth = this.months.map( (m, i) => {
+    const firstDayOfTheYear = (new Date(`${year}-01-01.`)).getDay();
+
+    let detailedMonths = this.months.map( (m, i) => {
       let firstDayOfMonth = (new Date(`${year}-${i+1}-1.`)).getDay();
       let lastDayOfMonth = (new Date(`${year}-${i+1}-${m.days}.`)).getDay();
       let numberOfWeeks = Math.ceil( ( firstDayOfMonth + m.days ) / 7 );
+      let daysToBeginningOfMonth = (i === 0 ? [{days: 0}] : months.slice(0, i)).map((m) => m.days).reduce( (init, days) => init + days ) + 1;
+      let weeksToBeginningOfMonth = Math.floor( ( firstDayOfTheYear + daysToBeginningOfMonth - 1 ) / 7);
+      let weeksAtEndOfMonth = weeksToBeginningOfMonth + numberOfWeeks; // don't subtract 1 because slice needs one more to get the full set;
       
-      return { numberOfWeeks, firstDayOfMonth, lastDayOfMonth, ...m }
+      return { weeksToBeginningOfMonth, weeksAtEndOfMonth, numberOfWeeks, firstDayOfMonth, lastDayOfMonth, daysToBeginningOfMonth, ...m }
       });
-    return weeksOfMonth
+
+    return detailedMonths
   }
 }
