@@ -7,18 +7,18 @@ export default class WeekCalc {
     const daysInFeb = this.isLeapYear ? 29 : 28;
 
     return ([
-        { days: 31, name: 'Jan' },
-        { days: daysInFeb, name: 'Feb' },
-        { days: 31, name: 'Mar' },
-        { days: 30, name: 'Apr' },
-        { days: 31, name: 'May' },
-        { days: 30, name: 'Jun' },
-        { days: 31, name: 'Jul' },
-        { days: 31, name: 'Aug' },
-        { days: 30, name: 'Sep' },
-        { days: 31, name: 'Oct' },
-        { days: 30, name: 'Nov' },
-        { days: 31, name: 'Dec' }
+      { days: 31, name: 'Jan' },
+      { days: daysInFeb, name: 'Feb' },
+      { days: 31, name: 'Mar' },
+      { days: 30, name: 'Apr' },
+      { days: 31, name: 'May' },
+      { days: 30, name: 'Jun' },
+      { days: 31, name: 'Jul' },
+      { days: 31, name: 'Aug' },
+      { days: 30, name: 'Sep' },
+      { days: 31, name: 'Oct' },
+      { days: 30, name: 'Nov' },
+      { days: 31, name: 'Dec' }
       ])
   }
 
@@ -53,5 +53,13 @@ export default class WeekCalc {
     const daysOfNextYear = this.seq(lastDayOfYear, 1).map( d => new Date(`${nextYear}-1-${d}.`) );
 
     return [...daysOfLastYear, ...currentYearInDays, ...daysOfNextYear]
+  }
+
+  get weeksPerMonth() {
+    const year = this.year;
+    const weeksOfMonth = this.months.map( (m, i) => {
+      return { numberOfWeeks: Math.ceil( ( (new Date(`${year}-${i+1}-1.`)).getDay() + m.days ) / 7 ), ...m }
+      });
+    return weeksOfMonth
   }
 }
