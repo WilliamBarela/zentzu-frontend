@@ -75,7 +75,11 @@ export default class WeekCalc {
   get weeksPerMonth() {
     const year = this.year;
     const weeksOfMonth = this.months.map( (m, i) => {
-      return { numberOfWeeks: Math.ceil( ( (new Date(`${year}-${i+1}-1.`)).getDay() + m.days ) / 7 ), ...m }
+      let firstDayOfMonth = (new Date(`${year}-${i+1}-1.`)).getDay();
+      let lastDayOfMonth = (new Date(`${year}-${i+1}-${m.days}.`)).getDay();
+      let numberOfWeeks = Math.ceil( ( firstDayOfMonth + m.days ) / 7 );
+      
+      return { numberOfWeeks, firstDayOfMonth, lastDayOfMonth, ...m }
       });
     return weeksOfMonth
   }
