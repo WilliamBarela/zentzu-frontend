@@ -1,4 +1,4 @@
-export default class WeekCalc {
+export default class Calendar {
   constructor(year) {
     this.year = year;
   }
