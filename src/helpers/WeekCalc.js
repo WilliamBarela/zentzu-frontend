@@ -52,7 +52,24 @@ export default class WeekCalc {
     const daysOfLastYear = this.seq(firstDayOfYear, 31 - (firstDayOfYear - 1) ).map( d => new Date(`${previousYear}-12-${d}.`) );
     const daysOfNextYear = this.seq(lastDayOfYear, 1).map( d => new Date(`${nextYear}-1-${d}.`) );
 
-    return [...daysOfLastYear, ...currentYearInDays, ...daysOfNextYear]
+    const days = [...daysOfLastYear, ...currentYearInDays, ...daysOfNextYear];
+    
+    let weekList = [];
+
+    let week = 1;
+    let init = 0;
+    let final = 7;
+    let weeks = days.length / 7;
+
+    while (weeks > 0) {
+      weekList = [...weekList, { [week]: days.slice(init, final)}];
+      init += 7;
+      final += 7;
+      week += 1;
+      weeks -= 1;
+    }
+
+    return weekList
   }
 
   get weeksPerMonth() {
