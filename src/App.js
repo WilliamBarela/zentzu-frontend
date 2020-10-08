@@ -9,17 +9,22 @@ import PrivateRoute from './components/PrivateRoute';
 import {
   PROFILE,
   LOGIN,
-  SIGNUP
+  SIGNUP,
+  DASHBOARD
 } from './api/endpoints';
 
 import Login from './components/Login';
 import Profile from './components/Profile';
-import SignUp from './components/SignUp'
+import SignUp from './components/SignUp';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path={DASHBOARD}>
+          <Dashboard />
+        </Route>
         <PrivateRoute path={PROFILE}>
           <Profile />
         </PrivateRoute>

@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  Link
+} from 'react-router-dom';
+
 import SignOut from './SignOut';
 
 class Profile extends React.Component {
@@ -7,6 +11,7 @@ class Profile extends React.Component {
       <>
         <SignOut />
         <h1>Hello</h1>
+        <Link to='/dashboard'>Dashboard</Link>
       </>
     )
   }
