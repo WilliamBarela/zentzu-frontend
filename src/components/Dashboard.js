@@ -40,7 +40,7 @@ function Year() {
 class Dashboard extends React.Component {
   render() {
     return(
-      <>
+      <div className="calendar-card">
         <div className="logo-week-card">
           <Logo />
           <Weeks />
@@ -52,7 +52,7 @@ class Dashboard extends React.Component {
         <div className="year-card">
           <Year />
         </div>
-      </>
+      </div>
     )
   }
 }

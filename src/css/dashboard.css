@@ -1,12 +1,16 @@
+.calendar-card {
+  height: calc(100vh - 2 * var(--h1-font-size));
+}
+
 .logo-week-card {
   display: flex;
-  height: 15vh;
+  height: 10%;
 }
 
 .month-current-week-card {
   display: flex;
   flex-direction: row;
-  height: 66vh;
+  height: 80%;
   width: 100%;
 }
 
@@ -22,5 +26,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 15vh;
+  height: 10%;
 }
