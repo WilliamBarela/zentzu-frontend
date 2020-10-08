@@ -90,4 +90,19 @@ export default class Calendar {
 
     return detailedMonths
   }
+
+  get yearMonthWeekDay () {
+    const weeks = this.weekList;
+    const months = this.detailedMonths;
+    const monthWeekDays = months.map( m => {
+        return { weeks:  weeks.slice(m.weeksToBeginningOfMonth, m.weeksAtEndOfMonth), details: {...m} }
+      })
+
+    const yearMonthWeekDay = {
+      [this.year]: {
+        ...monthWeekDays
+      }
+    };
+    return yearMonthWeekDay;
+  }
 }
