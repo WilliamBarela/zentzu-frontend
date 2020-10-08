@@ -1,0 +1,26 @@
+.logo-week-card {
+  display: flex;
+  height: 15vh;
+}
+
+.month-current-week-card {
+  display: flex;
+  flex-direction: row;
+  height: 66vh;
+  width: 100%;
+}
+
+.month-card {
+  flex: 0 0 20%;
+}
+
+.current-week-card {
+  flex: 0 0 80%;
+}
+
+.year-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}

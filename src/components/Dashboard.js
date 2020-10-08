@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../img/logo.svg';
 
+import '../css/dashboard.css';
+
 function Logo() {
   return(
     <h1>logo</h1>
@@ -15,13 +17,17 @@ function Weeks() {
 
 function Months() {
   return(
-    <h1>Months</h1>
+    <div className="month-card">
+      <h4>Months</h4>
+    </div>
   )
 }
 
 function CurrentWeek() {
   return(
-    <h1>Current Week</h1>
+    <div className="current-week-card">
+      <h4>Current Week</h4>
+    </div>
   )
 }
 
@@ -35,17 +41,17 @@ class Dashboard extends React.Component {
   render() {
     return(
       <>
-        <nav>
+        <div className="logo-week-card">
           <Logo />
           <Weeks />
-        </nav>
-        <main>
+        </div>
+        <div className="month-current-week-card">
           <Months />
           <CurrentWeek />
-        </main>
-        <footer>
+        </div>
+        <div className="year-card">
           <Year />
-        </footer>
+        </div>
       </>
     )
   }
