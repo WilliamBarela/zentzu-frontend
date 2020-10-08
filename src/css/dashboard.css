@@ -103,10 +103,15 @@
   list-style-type: none;
 }
 
-.current-week-card ul li {
+.current-week-card > ul > li {
   display: flex;
   flex-direction: row;
+  align-items: center;
   border-bottom: 1px solid red;
+  height: 100%;
+}
+
+.current-week-card > ul:first-child {
   border-top: 1px solid red;
 }
 
