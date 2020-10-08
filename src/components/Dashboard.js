@@ -64,7 +64,9 @@ function DayView(props){
           <li>5 g</li>
         </ul>
       </div>
-      <div className="day">5</div>
+      <div className="day-card">
+        <a href="#">5</a>
+      </div>
     </div>
   )
 }
