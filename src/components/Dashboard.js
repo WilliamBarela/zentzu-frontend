@@ -5,20 +5,43 @@ import '../css/dashboard.css';
 
 function Logo() {
   return(
-    <h1>logo</h1>
+    <div className="logo-card">
+      <img src={logo} alt="" className="logo"/>
+    </div>
   )
 }
 
 function Weeks() {
   return(
-    <h1>Weeks</h1>
+    <div className="weeks-card">
+      <ul className="weeks">
+        <li><a href="#">42</a></li>
+        <li><a href="#">43</a></li>
+        <li className="item-selected"><a href="#">44</a></li>
+        <li><a href="#">45</a></li>
+        <li><a href="#">46</a></li>
+      </ul>
+    </div>
   )
 }
 
 function Months() {
   return(
     <div className="month-card">
-      <h4>Months</h4>
+      <ul className="months">
+        <li><a href="#">jan</a></li>
+        <li><a href="#">feb</a></li>
+        <li><a href="#">mar</a></li>
+        <li><a href="#">apr</a></li>
+        <li><a href="#">may</a></li>
+        <li><a href="#">jun</a></li>
+        <li><a href="#">jul</a></li>
+        <li><a href="#">aug</a></li>
+        <li><a href="#">sep</a></li>
+        <li className="item-selected"><a href="#">oct</a></li>
+        <li><a href="#">nov</a></li>
+        <li><a href="#">dec</a></li>
+      </ul>
     </div>
   )
 }
@@ -33,7 +56,7 @@ function CurrentWeek() {
 
 function Year() {
   return(
-    <h1>Year</h1>
+    <button>Year</button>
   )
 }
 

@@ -5,6 +5,48 @@
 .logo-week-card {
   display: flex;
   height: 10%;
+  padding-bottom: var(--h6-font-size);
+}
+
+.logo-card {
+  flex: 0 0 20%;
+  height: 100%;
+}
+
+.logo {
+  height: 100%;
+  padding: var(--h6-font-size);
+}
+
+.weeks-card {
+  flex: 0 0 80%;
+}
+
+.weeks-card ul {
+  display: flex;
+  align-items: center;
+  align-content: stretch;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.weeks-card ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--c146-3x4-4); */
+  border: 1px solid var(--c146-3x4-4);
+  border-radius: 5px;
+  width: 100%;
+  height: 50%;
+  list-style-type: none;
+  margin: 0 var(--h8-font-size);
+}
+
+.weeks-card ul li a {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .month-current-week-card {
@@ -12,14 +54,44 @@
   flex-direction: row;
   height: 80%;
   width: 100%;
+  padding-bottom: var(--h6-font-size);
 }
 
 .month-card {
   flex: 0 0 20%;
 }
 
+.month-card ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: stretch;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.month-card ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--c146-3x4-4); */
+  border: 1px solid var(--c146-3x4-4);
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  margin: var(--h8-font-size) 0;
+}
+
+.month-card ul li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
 .current-week-card {
   flex: 0 0 80%;
+  padding-left: var(--h6-font-size);
 }
 
 .year-card{
@@ -28,3 +100,15 @@
   align-items: center;
   height: 10%;
 }
+
+.year-card button {
+  width: 100%;
+  height: 100%;
+  font-size: var(--h1-font-size);
+  border-style: none;
+}
+
+.item-selected {
+  background-color: var(--c146-3x4-4);
+}
+
