@@ -46,10 +46,62 @@ function Months() {
   )
 }
 
+function AddTask(props){
+  return(
+    <div className="add-task-card">
+      <span>+</span>
+    </div>
+  )
+}
+
+function DayView(props){
+  return(
+    <div className="day-view-card">
+      <div className="task-summary-card">
+        <ul className="task-list">
+          <li>3 r</li>
+          <li>1 y</li>
+          <li>5 g</li>
+        </ul>
+      </div>
+      <div className="day">5</div>
+    </div>
+  )
+}
+
 function CurrentWeek() {
   return(
     <div className="current-week-card">
-      <h4>Current Week</h4>
+      <ul>
+        <li>
+          <AddTask />
+          <DayView />
+        </li>
+        <li>
+          <AddTask />
+          <DayView />
+        </li>
+        <li>
+          <AddTask />
+          <DayView />
+        </li>
+        <li>
+          <AddTask />
+          <DayView />
+        </li>
+        <li>
+          <AddTask />
+          <DayView />
+        </li>
+        <li>
+          <AddTask />
+          <DayView />
+        </li>
+        <li>
+          <AddTask />
+          <DayView />
+        </li>
+      </ul>
     </div>
   )
 }

@@ -34,7 +34,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--c146-3x4-4); */
   border: 1px solid var(--c146-3x4-4);
   border-radius: 5px;
   width: 100%;
@@ -74,7 +73,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--c146-3x4-4); */
   border: 1px solid var(--c146-3x4-4);
   border-radius: 5px;
   width: 100%;
@@ -92,6 +90,46 @@
 .current-week-card {
   flex: 0 0 80%;
   padding-left: var(--h6-font-size);
+  padding-bottom: var(--h6-font-size);
+  padding-top: var(--h6-font-size);
+}
+
+.current-week-card ul {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: space-between;
+  height: 100%;
+  list-style-type: none;
+}
+
+.current-week-card ul li {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid red;
+  border-top: 1px solid red;
+}
+
+.add-task-card {
+}
+
+.day-view-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.task-summary-card {
+  display: flex;
+}
+
+.task-summary-card {
+  display: flex;
+  flex-direction: row;
+}
+
+ul.task-list {
+  display: flex;
+  flex-direction: row;
 }
 
 .year-card{
