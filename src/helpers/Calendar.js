@@ -62,7 +62,7 @@ export default class Calendar {
     let weeks = days.length / 7;
 
     while (weeks > 0) {
-      weekList = [...weekList, { [week]: days.slice(init, final)}];
+      weekList = [...weekList, { weekNo: week, days: days.slice(init, final)}];
       init += 7;
       final += 7;
       week += 1;

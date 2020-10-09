@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import sessionReducer from './sessionReducer';
+import calendarReducer from './calendarReducer';
 import { EXPIRE_SESSION } from '../actions/actionTypes';
 
 const appReducer = combineReducers({
-  sessionReducer
+  sessionReducer,
+  calendarReducer
 })
 
 const rootReducer = (state, action) => {
