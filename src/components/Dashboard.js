@@ -3,6 +3,8 @@ import logo from '../img/logo.svg';
 
 import '../css/dashboard.css';
 
+import YearSelector from './dashboard/YearSelector';
+
 function Logo() {
   return(
     <div className="logo-card">
@@ -110,12 +112,6 @@ function CurrentWeek() {
   )
 }
 
-function Year() {
-  return(
-    <button>Year</button>
-  )
-}
-
 class Dashboard extends React.Component {
   render() {
     return(
@@ -129,7 +125,7 @@ class Dashboard extends React.Component {
           <CurrentWeek />
         </div>
         <div className="year-card">
-          <Year />
+          <YearSelector />
         </div>
       </div>
     )
