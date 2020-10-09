@@ -20,6 +20,7 @@
 
 .weeks-card {
   flex: 0 0 80%;
+  padding-left: var(--h6-font-size);
 }
 
 .weeks-card ul {
@@ -89,7 +90,7 @@
 
 .current-week-card {
   flex: 0 0 80%;
-  padding-left: var(--h6-font-size);
+  padding-left: var(--h4-font-size);
   padding-bottom: var(--h6-font-size);
   padding-top: var(--h6-font-size);
 }
@@ -107,12 +108,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid var(--c146-3x4-1);
   height: 100%;
 }
 
 .current-week-card > ul:first-child {
-  border-top: 1px solid red;
+  border-top: 1px solid var(--c146-3x4-1);
 }
 
 .add-task-card {
@@ -219,5 +220,10 @@
 
 .item-selected {
   background-color: var(--c146-3x4-4);
+}
+
+.item-selected a {
+  color: white;
+  font-weight: bold;
 }
 
