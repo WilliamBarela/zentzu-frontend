@@ -153,13 +153,54 @@
 .task-summary-card ul li {
 }
 
+.task-urgent {
+  color: red;
+  font-weight: bold;
+  /*
+  background-color: red;
+  padding: calc( var(--h6-font-size) / 25) var(--h6-font-size);
+  border-radius: 5px;
+  */
+}
+
+.task-normal {
+  color: yellow;
+  font-weight: bold;
+  /*
+  background-color: yellow;
+  padding: calc( var(--h6-font-size) / 25) var(--h6-font-size);
+  border-radius: 5px;
+  */
+}
+
+.task-completed {
+  color: green;
+  font-weight: bold;
+  /*
+  background-color: green;
+  padding: calc( var(--h6-font-size) / 25) var(--h6-font-size);
+  border-radius: 5px;
+  */
+}
+
 .day-card {
-  flex: 0 0 30%;
+  flex: 0 0 25%;
   text-align: center;
+  padding: 5px 0;
+  border: 1px solid var(--c146-3x4-3);
+  border-radius: 5px;
 }
 
 .day-card a {
   font-size: var(--h2-font-size);
+}
+
+.day-selected {
+  background-color: var(--c146-3x4-3);
+}
+
+.day-selected a {
+  color: white;
 }
 
 .year-card{
