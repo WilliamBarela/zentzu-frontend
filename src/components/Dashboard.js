@@ -1,17 +1,9 @@
 import React from 'react';
-import logo from '../img/logo.svg';
 
 import '../css/dashboard.css';
 
 import YearSelector from './dashboard/YearSelector';
-
-function Logo() {
-  return(
-    <div className="logo-card">
-      <img src={logo} alt="" className="logo"/>
-    </div>
-  )
-}
+import Logo from './Logo';
 
 function Weeks() {
   return(
