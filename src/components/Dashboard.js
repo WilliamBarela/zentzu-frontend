@@ -6,14 +6,7 @@ import Logo from './Logo';
 import YearSelector from './dashboard/YearSelector';
 import Months from './dashboard/Months';
 import Weeks from './dashboard/Weeks';
-
-function AddTask(props){
-  return(
-    <div className="add-task-card">
-      <span>+</span>
-    </div>
-  )
-}
+import AddTask from './dashboard/currentweek/AddTask';
 
 function DayView(props){
   const selected = props.selected ? "day-selected" : "";
