@@ -209,7 +209,8 @@
   background-color: var(--c146-3x4-3);
 }
 
-.day-selected a {
+.day-selected a,
+.day-selected span {
   color: white;
 }
 
