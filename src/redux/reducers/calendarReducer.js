@@ -1,17 +1,13 @@
-import Calendar from '../../helpers/Calendar.js';
 import {
-  currentDestructuredDate,
-  findDateLocation
+  getCalendarDateObjects
 } from '../../helpers/findDateLocation';
 
-const destructuredDate =  currentDestructuredDate(); // {year: 2021, month: 6, day: 4}
-let calendar = (new Calendar(destructuredDate.year)).yearMonthWeekDay;
-let date = findDateLocation(calendar, destructuredDate);
+let { calendar, date } = getCalendarDateObjects();
 
 let initialState = {
   calendar,
   date
-};
+}
 
 export default function calendarReducer(state = initialState, action) {
   switch (action.type) {

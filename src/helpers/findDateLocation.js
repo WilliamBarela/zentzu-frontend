@@ -1,3 +1,5 @@
+import Calendar from './Calendar.js';
+
 export function currentDestructuredDate (dateObject = (new Date)) {
   dateObject.setHours(0,0,0,0);
 
@@ -29,4 +31,12 @@ export function findDateLocation (calendar, destructuredDate = currentDestructur
   }
   
   return {...destructuredDate, weekIndex, weekVal, dateIndex, dateObject }
+}
+
+export function getCalendarDateObjects(destructuredDate = currentDestructuredDate()) {
+  // destructuredDate is an object with a year, month and day key: {year: 2021, month: 6, day: 4}
+  let calendar = (new Calendar(destructuredDate.year)).yearMonthWeekDay;
+  let date = findDateLocation(calendar, destructuredDate);
+  
+  return { calendar, date }
 }
