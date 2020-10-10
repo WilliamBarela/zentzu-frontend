@@ -1,7 +1,7 @@
 import React from 'react';
 
 function DayView(props){
-  const selected = props.selected ? "day-selected" : "";
+  const selectedDate = (props.day.getDate() === props.selectedDate) ? "day-selected" : "";
 
   return(
     <div className="day-view-card">
@@ -12,8 +12,8 @@ function DayView(props){
           <li><span className="task-completed">5</span></li>
         </ul>
       </div>
-      <div className={`day-card ${selected}`}>
-        <a href="#">25</a>
+      <div className={`day-card ${selectedDate}`}>
+        <a href="#">{props.day.getDate()}</a>
       </div>
     </div>
   )

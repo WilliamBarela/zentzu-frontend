@@ -4,7 +4,7 @@ import {
   findDateLocation
 } from '../../helpers/findDateLocation';
 
-const destructuredDate = currentDestructuredDate();
+const destructuredDate =  currentDestructuredDate(); // {year: 2021, month: 6, day: 4}
 let calendar = (new Calendar(destructuredDate.year)).yearMonthWeekDay;
 let date = findDateLocation(calendar, destructuredDate);
 
