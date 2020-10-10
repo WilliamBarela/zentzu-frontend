@@ -1,17 +1,40 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-function Weeks() {
+function Week(props) {
+  const itemSelected = (props.value === props.selectedWeek) ? "item-selected" : "";
+
+  return(
+    <li className={itemSelected}><a href="">{props.value}</a></li>
+  )
+}
+
+function Weeks(props) {
+  const weekList = props.weeks.map( week => 
+    <Week 
+      key={week.weekNo}
+      value={week.weekNo}
+      selectedWeek={props.selectedWeek}
+    />
+  );
+
   return(
     <div className="weeks-card">
       <ul className="weeks">
-        <li><a href="#">42</a></li>
-        <li><a href="#">43</a></li>
-        <li className="item-selected"><a href="#">44</a></li>
-        <li><a href="#">45</a></li>
-        <li><a href="#">46</a></li>
+        { weekList }
       </ul>
     </div>
   )
 }
 
-export default Weeks;
+const mapStateToProps = (state) => {
+  const calendar = state.calendarReducer.calendar;
+  const selected = state.calendarReducer.date;
+
+  return({
+    weeks: calendar.months[selected.month].weeks,
+    selectedWeek: selected.weekVal
+  });
+}
+
+export default connect(mapStateToProps)(Weeks);
