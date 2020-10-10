@@ -47,6 +47,7 @@
   display: block;
   width: 100%;
   text-align: center;
+  color: var(--c146-3x4-4);
 }
 
 .month-current-week-card {
@@ -86,6 +87,7 @@
   display: block;
   width: 100%;
   text-align: center;
+  color: var(--c146-3x4-4);
 }
 
 .current-week-card {
@@ -119,11 +121,11 @@
 .add-task-card {
   flex: 0 0 20%;
   text-align: center;
-  font-size: var(--h1-font-size);
+  font-size: var(--h2-font-size);
 }
 
 .add-task-card span {
-  color: var(--c146-3x4-4);
+  color: var(--c146-3x4-2);
 }
 
 .day-view-card {
@@ -194,6 +196,7 @@
 
 .day-card a {
   font-size: var(--h2-font-size);
+  color: var(--c146-3x4-3);
 }
 
 .day-selected {
@@ -206,23 +209,57 @@
 
 .year-card{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 10%;
+  width: 100%;
 }
 
-.year-card button {
-  width: 100%;
-  height: 100%;
+
+.year-card span {
   font-size: var(--h1-font-size);
-  border-style: none;
+  text-align: center;
+  padding: 7px 0 10px 0;
+}
+
+.year-text {
+  flex: 0 0 50%;
+  background-color: var(--c146-3x4-4);
+  border-top: 1px solid var(--c146-3x4-4);
+  border-bottom: 1px solid var(--c146-3x4-4);
+  color: white;
+}
+
+.year-decrease {
+  border-top: 1px solid var(--c146-3x4-4);
+  border-left: 1px solid var(--c146-3x4-4);
+  border-bottom: 1px solid var(--c146-3x4-4);
+  border-radius: 5px;
+}
+
+.year-increase {
+  border-top: 1px solid var(--c146-3x4-4);
+  border-right: 1px solid var(--c146-3x4-4);
+  border-bottom: 1px solid var(--c146-3x4-4);
+  border-radius: 5px;
+}
+
+.year-decrease,
+.year-increase {
+  flex: 0 0 25%;
+  color: var(--c146-3x4-4);
+}
+
+.year-increase:hover,
+.year-decrease:hover {
+  cursor: pointer;
 }
 
 .item-selected {
   background-color: var(--c146-3x4-4);
 }
 
-.item-selected a {
+ul li.item-selected a {
   color: white;
   font-weight: bold;
 }

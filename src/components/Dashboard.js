@@ -20,9 +20,7 @@ class Dashboard extends React.Component {
           <Months />
           <CurrentWeek />
         </div>
-        <div className="year-card">
           <YearSelector />
-        </div>
       </div>
     )
   }

@@ -4,7 +4,11 @@ import { connect } from 'react-redux';
 
 function YearSelector(props) {
   return(
-    <button>{props.year}</button>
+    <div className="year-card">
+      <span className="year-decrease">&#x2B05;</span>
+      <span className="year-text">{props.year}</span>
+      <span className="year-increase">&#x27A1;</span>
+    </div>
   )
 }
 
