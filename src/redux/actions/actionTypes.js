@@ -1,6 +1,10 @@
+// authentication action typese
 export const AUTHENTICATE_SUCCESS = "AUTHENTICATE_SUCCESS";
 export const AUTHENTICATE_FAILED = "AUTHENTICATE_FAILED";
 export const EXPIRE_SESSION = "EXPIRE_SESSION";
 export const REGISTRATION_FAILED = "REGISTRATION_FAILED";
 export const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
 
+// dashboard action types
+export const YEAR_INCREASE = "YEAR_INCREASE";
+export const YEAR_DECREASE = "YEAR_DECREASE";
