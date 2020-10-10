@@ -2,6 +2,8 @@ import React from 'react';
 
 function DayView(props){
   const selectedDate = (props.day.getDate() === props.selectedDate) ? "day-selected" : "";
+  const date = props.day.getDate();
+  const day = props.day.toLocaleDateString(undefined, { weekday: 'short' });
 
   return(
     <div className="day-view-card">
@@ -13,7 +15,8 @@ function DayView(props){
         </ul>
       </div>
       <div className={`day-card ${selectedDate}`}>
-        <a href="#">{props.day.getDate()}</a>
+        <span>{day}</span>
+        <a href="#">{date}</a>
       </div>
     </div>
   )
