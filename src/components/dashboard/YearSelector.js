@@ -1,9 +1,17 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-function YearSelector() {
+
+function YearSelector(props) {
   return(
-    <button>Year</button>
+    <button>{props.year}</button>
   )
 }
 
-export default YearSelector;
+const mapStateToProps = (state) => {
+  return {
+    year: state.calendarReducer.date.year
+  }
+}
+
+export default connect(mapStateToProps)(YearSelector);
