@@ -12,7 +12,7 @@ export function findDateLocation (calendar, destructuredDate = currentDestructur
   const {year, month, day} = destructuredDate;
 
   let dateObject = new Date(`${year}-${month + 1}-${day}.`);
-  let currentMonthWeeks = calendar[year][month].weeks
+  let currentMonthWeeks = calendar.months[month].weeks
 
   let weekVal;
   let dateIndex;

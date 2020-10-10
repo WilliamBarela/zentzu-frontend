@@ -84,8 +84,9 @@ export default class Calendar {
       let daysToBeginningOfMonth = (i === 0 ? [{days: 0}] : months.slice(0, i)).map((m) => m.days).reduce( (init, days) => init + days ) + 1;
       let weeksToBeginningOfMonth = Math.floor( ( firstDayOfTheYear + daysToBeginningOfMonth - 1 ) / 7);
       let weeksAtEndOfMonth = weeksToBeginningOfMonth + numberOfWeeks; // don't subtract 1 because slice needs one more to get the full set;
+      let index = m.id - 1;
       
-      return { weeksToBeginningOfMonth, weeksAtEndOfMonth, numberOfWeeks, firstDayOfMonth, lastDayOfMonth, daysToBeginningOfMonth, ...m }
+      return { index, weeksToBeginningOfMonth, weeksAtEndOfMonth, numberOfWeeks, firstDayOfMonth, lastDayOfMonth, daysToBeginningOfMonth, ...m }
       });
 
     return detailedMonths
@@ -99,9 +100,8 @@ export default class Calendar {
       })
 
     const yearMonthWeekDay = {
-      [this.year]: {
-        ...monthWeekDays
-      }
+      year: this.year,
+      months: monthWeekDays
     };
     return yearMonthWeekDay;
   }
