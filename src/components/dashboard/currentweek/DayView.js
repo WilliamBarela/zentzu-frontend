@@ -1,7 +1,7 @@
 import React from 'react';
 
 function DayView(props){
-  const selectedDate = (props.day.getDate() === props.selectedDate) ? "day-selected" : "";
+  const selectedDate = (props.day.valueOf() === props.currentDateObject.valueOf()) ? "day-selected" : "";
   const date = props.day.getDate();
   const day = props.day.toLocaleDateString(undefined, { weekday: 'short' });
 

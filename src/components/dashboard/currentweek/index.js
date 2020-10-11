@@ -8,7 +8,7 @@ function Day(props){
   return(
     <li>
       <AddTask day={props.day}/>
-      <DayView day={props.day} selectedDate={props.selectedDate}/>
+      <DayView day={props.day} currentDateObject={props.currentDateObject}/>
     </li>
   )
 }
@@ -18,7 +18,7 @@ function CurrentWeek(props) {
     <Day 
       key={day.getDate()}
       day={day}
-      selectedDate={props.selectedDate}
+      currentDateObject={props.currentDateObject}
     />
   );
 
@@ -37,7 +37,7 @@ const mapStateToProps = state => {
 
   return({
     days: calendar.months[selected.month].weeks[selected.weekIndex].days,
-    selectedDate: selected.day
+    currentDateObject: selected.dateObject
   })
 }
 
