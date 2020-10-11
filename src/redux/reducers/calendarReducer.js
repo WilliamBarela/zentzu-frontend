@@ -3,7 +3,8 @@ import { getCalendarDateObjects } from '../../helpers/findDateLocation';
 import {
   YEAR_INCREASE,
   YEAR_DECREASE,
-  CHANGE_MONTH
+  CHANGE_MONTH,
+  CHANGE_WEEK
 } from '../actions/actionTypes';
 
 let { calendar, date } = getCalendarDateObjects();
@@ -15,6 +16,10 @@ let initialState = {
 
 export default function calendarReducer(state = initialState, action) {
   let dateHash;
+  let currentMonth;
+  let selectedWeek;
+  let selectedWeekIndex;
+  let weekVal;
 
   switch (action.type) {
     case YEAR_INCREASE:
@@ -38,6 +43,13 @@ export default function calendarReducer(state = initialState, action) {
         day: 1
       }
       return getCalendarDateObjects(dateHash);
+    case CHANGE_WEEK:
+      // FIXME: wrap this up into a helper funcition and return hash
+      selectedWeekIndex = action.payload.weekIndex;
+      currentMonth = state.date.month;
+      selectedWeek = state.calendar.months[currentMonth].weeks[selectedWeekIndex];
+      weekVal = selectedWeek.weekNo;
+      return { ...state, date: {...state.date, weekIndex: action.payload.weekIndex, weekVal } }
     default:
       return state;
   }

@@ -1,20 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {
+  changeWeek
+} from '../../redux/actions/calendarActions';
 
 function Week(props) {
   const itemSelected = (props.value === props.selectedWeek) ? "item-selected" : "";
 
+  const handleChangeWeek = (e) => {
+    const weekIndex = parseInt(e.target.value);
+    props.actions.changeWeek(weekIndex)
+  }
+
   return(
-    <li className={itemSelected}><a href="">{props.value}</a></li>
+    <li className={itemSelected} value={props.weekIndex} onClick={handleChangeWeek}>{props.value}</li>
   )
 }
 
 function Weeks(props) {
-  const weekList = props.weeks.map( week => 
+  const weekList = props.weeks.map( (week, weekIndex) => 
     <Week 
       key={week.weekNo}
       value={week.weekNo}
       selectedWeek={props.selectedWeek}
+      actions={props.actions}
+      weekIndex={weekIndex}
     />
   );
 
@@ -37,4 +47,12 @@ const mapStateToProps = (state) => {
   });
 }
 
-export default connect(mapStateToProps)(Weeks);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: {
+      changeWeek: (weekIndex) => { dispatch( changeWeek(weekIndex) ) }
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Weeks);

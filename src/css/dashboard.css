@@ -41,14 +41,9 @@
   height: 50%;
   list-style-type: none;
   margin: 0 var(--h8-font-size);
-}
-
-.weeks-card ul li a {
-  display: block;
-  width: 100%;
-  text-align: center;
   color: var(--c146-3x4-4);
 }
+
 
 .month-current-week-card {
   display: flex;
@@ -81,12 +76,6 @@
   height: 100%;
   list-style-type: none;
   margin: var(--h8-font-size) 0;
-}
-
-.month-card ul li a {
-  display: block;
-  width: 100%;
-  text-align: center;
   color: var(--c146-3x4-4);
 }
 
@@ -266,7 +255,7 @@
   background-color: var(--c146-3x4-4);
 }
 
-ul li.item-selected a {
+ul li.item-selected {
   color: white;
   font-weight: bold;
 }
