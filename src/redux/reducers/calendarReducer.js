@@ -21,6 +21,8 @@ export default function calendarReducer(state = initialState, action) {
   let selectedWeekIndex;
   let weekVal;
 
+  let monthSelected;
+
   switch (action.type) {
     case YEAR_INCREASE:
       dateHash = {
@@ -37,12 +39,10 @@ export default function calendarReducer(state = initialState, action) {
       };
       return getCalendarDateObjects(dateHash);
     case CHANGE_MONTH:
-      dateHash = {
-        year: state.date.year,
-        month: action.payload.monthIndex,
-        day: 1
-      }
-      return getCalendarDateObjects(dateHash);
+      // FIXME: wrap this up into a helper funcition and return hash
+      monthSelected = action.payload.monthIndex;
+      weekVal = state.calendar.months[monthSelected].weeks[0].weekNo;
+      return { ...state, date: {...state.date, month: monthSelected, weekIndex: 0, weekVal}}
     case CHANGE_WEEK:
       // FIXME: wrap this up into a helper funcition and return hash
       selectedWeekIndex = action.payload.weekIndex;

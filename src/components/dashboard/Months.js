@@ -8,12 +8,12 @@ function Month(props) {
   const itemSelected = (props.monthIndex === props.selectedMonth) ? "item-selected" : "";
 
   const handleChangeMonth = (e) => {
-    let monthIndex = parseInt(e.target.id);
+    let monthIndex = parseInt(e.target.value);
     props.actions.changeMonth(monthIndex);
   }
 
   return(
-    <li className={itemSelected} id={props.monthIndex} onClick={handleChangeMonth}>{props.monthName}</li>
+    <li className={itemSelected} value={props.monthIndex} onClick={handleChangeMonth}>{props.monthName}</li>
   )
 }
 
