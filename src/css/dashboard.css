@@ -187,11 +187,15 @@
   border-radius: 5px;
 }
 
-.day-card span {
+.day,
+.month {
   font-size: var(--h7-font-size);
 }
 
 .day-card a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: var(--h3-font-size);
   color: var(--c146-3x4-3);
 }
@@ -200,8 +204,7 @@
   background-color: var(--c146-3x4-3);
 }
 
-.day-selected a,
-.day-selected span {
+.day-selected a span {
   color: white;
 }
 
