@@ -30,14 +30,14 @@ export default function calendarReducer(state = initialState, action) {
         month: state.date.month,
         day: 1
       };
-      return getCalendarDateObjects(dateHash);
+      return getCalendarDateObjects(dateHash, state.date.dateObject);
     case YEAR_DECREASE:
       dateHash = {
         year: state.date.year - 1,
         month: state.date.month,
         day: 1
       };
-      return getCalendarDateObjects(dateHash);
+      return getCalendarDateObjects(dateHash, state.date.dateObject);
     case CHANGE_MONTH:
       // FIXME: wrap this up into a helper funcition and return hash
       monthSelected = action.payload.monthIndex;

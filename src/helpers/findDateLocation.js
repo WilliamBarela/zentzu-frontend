@@ -10,7 +10,7 @@ export function currentDestructuredDate (dateObject = (new Date)) {
   return { year, month, day }
 }
 
-export function findDateLocation (calendar, destructuredDate = currentDestructuredDate()) {
+export function findDateLocation (calendar, destructuredDate = currentDestructuredDate(), originalDateObject = null) {
   const {year, month, day} = destructuredDate;
 
   let dateObject = new Date(`${year}-${month + 1}-${day}.`);
@@ -29,14 +29,16 @@ export function findDateLocation (calendar, destructuredDate = currentDestructur
     }
     weekIndex += 1;
   }
+
+  dateObject = originalDateObject || dateObject;
   
   return {...destructuredDate, weekIndex, weekVal, dateIndex, dateObject }
 }
 
-export function getCalendarDateObjects(destructuredDate = currentDestructuredDate()) {
+export function getCalendarDateObjects(destructuredDate = currentDestructuredDate(), originalDateObject = null) {
   // destructuredDate is an object with a year, month and day key: {year: 2021, month: 6, day: 4}
   let calendar = (new Calendar(destructuredDate.year)).yearMonthWeekDay;
-  let date = findDateLocation(calendar, destructuredDate);
+  let date = findDateLocation(calendar, destructuredDate, originalDateObject);
   
   return { calendar, date }
 }
