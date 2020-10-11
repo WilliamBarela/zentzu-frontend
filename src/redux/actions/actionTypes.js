@@ -8,3 +8,4 @@ export const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
 // dashboard action types
 export const YEAR_INCREASE = "YEAR_INCREASE";
 export const YEAR_DECREASE = "YEAR_DECREASE";
+export const CHANGE_MONTH = "CHANGE_MONTH";

@@ -1,6 +1,7 @@
 import {
   YEAR_INCREASE,
-  YEAR_DECREASE
+  YEAR_DECREASE,
+  CHANGE_MONTH
 } from './actionTypes';
 
 export const yearIncrease = () => {
@@ -9,4 +10,8 @@ export const yearIncrease = () => {
 
 export const yearDecrease = () => {
   return { type: YEAR_DECREASE }
+}
+
+export const changeMonth = (monthIndex) => {
+  return { type: CHANGE_MONTH, payload: { monthIndex } }
 }

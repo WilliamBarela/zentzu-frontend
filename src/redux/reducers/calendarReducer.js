@@ -2,7 +2,8 @@ import { getCalendarDateObjects } from '../../helpers/findDateLocation';
 
 import {
   YEAR_INCREASE,
-  YEAR_DECREASE
+  YEAR_DECREASE,
+  CHANGE_MONTH
 } from '../actions/actionTypes';
 
 let { calendar, date } = getCalendarDateObjects();
@@ -29,6 +30,13 @@ export default function calendarReducer(state = initialState, action) {
         month: state.date.month,
         day: 1
       };
+      return getCalendarDateObjects(dateHash);
+    case CHANGE_MONTH:
+      dateHash = {
+        year: state.date.year,
+        month: action.payload.monthIndex,
+        day: 1
+      }
       return getCalendarDateObjects(dateHash);
     default:
       return state;
