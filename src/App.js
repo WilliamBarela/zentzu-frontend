@@ -16,7 +16,7 @@ import {
 import Login from './components/Login';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard';
 
 function App() {
   return (

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import '../css/dashboard.css';
+import '../../css/dashboard.css';
 
-import Logo from './Logo';
-import YearSelector from './dashboard/YearSelector';
-import Months from './dashboard/Months';
-import Weeks from './dashboard/Weeks';
-import CurrentWeek from './dashboard/currentweek';
+import Logo from '../Logo';
+import YearSelector from './YearSelector';
+import Months from './Months';
+import Weeks from './Weeks';
+import CurrentWeek from './currentweek';
 
 class Dashboard extends React.Component {
   render() {
