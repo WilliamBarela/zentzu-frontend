@@ -10,15 +10,19 @@ import {
   PROFILE,
   LOGIN,
   SIGNUP,
-  DASHBOARD
+  DASHBOARD,
+  TASKS
 } from './api/endpoints';
 
 import Login from './components/Login';
 import Profile from './components/Profile';
 import SignUp from './components/SignUp';
 import Dashboard from './components/dashboard';
+import Tasks from './components/tasks';
 
 function App() {
+  // checkout this article on routes with props
+  // https://ui.dev/react-router-v4-pass-props-to-components/
   return (
     <Router>
       <Switch>

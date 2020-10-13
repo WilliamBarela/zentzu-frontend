@@ -117,6 +117,7 @@
 
 .add-task-card span {
   color: var(--c146-3x4-2);
+  cursor: pointer;
 }
 
 .day-view-card {
