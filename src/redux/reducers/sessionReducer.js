@@ -13,7 +13,7 @@ const authState = action => {
 export default function sessionReducer(state = {}, action) {
   switch (action.type) {
     case AUTHENTICATE_SUCCESS:
-      return {...action.payload, ...authState(action)}
+      return {...state, ...action.response, ...authState(action)}
     case AUTHENTICATE_FAILED:
       return { ...state, errors: action.response.errors, ...authState(action) }
     case REGISTRATION_SUCCESS:
