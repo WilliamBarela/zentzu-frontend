@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/zentzu-frontend/static/css/main.08932816.chunk.css",
+    "main.js": "/zentzu-frontend/static/js/main.a9011384.chunk.js",
+    "main.js.map": "/zentzu-frontend/static/js/main.a9011384.chunk.js.map",
+    "runtime-main.js": "/zentzu-frontend/static/js/runtime-main.6ebf7ca2.js",
+    "runtime-main.js.map": "/zentzu-frontend/static/js/runtime-main.6ebf7ca2.js.map",
+    "static/js/2.77c567b2.chunk.js": "/zentzu-frontend/static/js/2.77c567b2.chunk.js",
+    "static/js/2.77c567b2.chunk.js.map": "/zentzu-frontend/static/js/2.77c567b2.chunk.js.map",
+    "index.html": "/zentzu-frontend/index.html",
+    "precache-manifest.6d0515bed3605abc3de37ff157a58a16.js": "/zentzu-frontend/precache-manifest.6d0515bed3605abc3de37ff157a58a16.js",
+    "service-worker.js": "/zentzu-frontend/service-worker.js",
+    "static/css/main.08932816.chunk.css.map": "/zentzu-frontend/static/css/main.08932816.chunk.css.map",
+    "static/js/2.77c567b2.chunk.js.LICENSE.txt": "/zentzu-frontend/static/js/2.77c567b2.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/zentzu-frontend/static/media/logo.00d59b3f.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6ebf7ca2.js",
+    "static/js/2.77c567b2.chunk.js",
+    "static/css/main.08932816.chunk.css",
+    "static/js/main.a9011384.chunk.js"
+  ]
+}
