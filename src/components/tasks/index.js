@@ -12,7 +12,7 @@ function TaskAdd(props) {
   )
 }
 
-class Tasks {
+class Tasks extends React.Component {
   constructor(props) {
     super(props)
   }
