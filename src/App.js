@@ -26,9 +26,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path={DASHBOARD}>
+        <PrivateRoute path={DASHBOARD}>
           <Dashboard />
-        </Route>
+        </PrivateRoute>
         <PrivateRoute path={PROFILE}>
           <Profile />
         </PrivateRoute>
