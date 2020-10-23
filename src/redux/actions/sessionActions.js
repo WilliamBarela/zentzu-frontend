@@ -15,7 +15,7 @@ import {
   createThunkWithRedirect
 } from './helpers/thunkCreators';
 import {
-  PROFILE
+  DASHBOARD
 } from '../../api/endpoints';
 
 const registrationStatus = createActionStatus({
@@ -28,7 +28,7 @@ export const registration = createThunkWithRedirect({
   dataTarget: "signUpInfo",
   apiCall: postSignUp,
   actionStatus: registrationStatus,
-  redirectTo: PROFILE
+  redirectTo: DASHBOARD
 });
 
 const authenticateStatus = createActionStatus({
@@ -41,7 +41,7 @@ export const authenticate = createThunkWithRedirect({
   dataTarget: "loginInfo",
   apiCall: postLogin,
   actionStatus: authenticateStatus,
-  redirectTo: PROFILE
+  redirectTo: DASHBOARD
 });
 
 export function expireSession(history) {
